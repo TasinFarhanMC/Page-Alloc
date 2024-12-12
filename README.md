@@ -30,6 +30,6 @@ A Page Allocator Written in C **[POSIX Required]**
 | `size`    | `size_t` | Allocation Size [In Bytes] |
 
 
-#### Constants (Set via `page_alloc_init()` at runtime)
+#### Constants (Set via [`page_alloc_init()`](#initialize) at runtime)
 - **`PAGE_ALLOC_INIT`**: Indicates if the library has been initialized using [`page_alloc_init()`](#initialize).
 - **`PAGE_ALLOC_SIZE`**: Defines the size of each page in the allocator (typically **4096** bytes).
