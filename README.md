@@ -1,6 +1,5 @@
-# Page Alloc
 ![Build Status](https://github.com/TasinFarhanMC/Page-Alloc/actions/workflows/ci.yaml/badge.svg)
-
+# Page Alloc
 A Page Allocator Written in C **([POSIX](https://wikipedia.org/wiki/POSIX#POSIX-oriented_operating_systems) Required)**
 ## API Reference
 
