@@ -1,0 +1,31 @@
+name: Linux Debug Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request: 
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      matrix:
+        os: [ ubuntu, macos ]
+        type: [ release, debug ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Configure CMake
+        if: ${{ matrix.type == 'release' }}
+        run: cmake . -B build
+      - if: ${{ matrix.type == 'debug' }}
+        run: cmake . -B build -D PAGE_ALLOC_DEBUG=ON
+
+      - name: Build
+        run: cmake --build build
