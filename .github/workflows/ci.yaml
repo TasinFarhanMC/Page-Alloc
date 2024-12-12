@@ -1,4 +1,4 @@
-name: Linux Debug Build
+name: Build CI
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
         type: [ release, debug ]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup CMake
@@ -24,6 +24,7 @@ jobs:
       - name: Configure CMake
         if: ${{ matrix.type == 'release' }}
         run: cmake . -B build
+
       - if: ${{ matrix.type == 'debug' }}
         run: cmake . -B build -D PAGE_ALLOC_DEBUG=ON
 
