@@ -1,4 +1,4 @@
-![Build Status](https://github.com/TasinFarhanMC/Page-Alloc/actions/workflows/ci.yaml/badge.svg)
+[![Build Status](https://github.com/TasinFarhanMC/Page-Alloc/actions/workflows/ci.yaml/badge.svg)](https://github.com/TasinFarhanMC/Page-Alloc/actions) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 # Page Alloc
 A Page Allocator Written in C **([POSIX](https://wikipedia.org/wiki/POSIX#POSIX-oriented_operating_systems) Required)**
 ## API Reference
