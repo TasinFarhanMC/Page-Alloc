@@ -1,5 +1,17 @@
-extern unsigned long PAGE_ALLOC_UNIT;
-extern char PAGE_ALLOC_INIT;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void *page_alloc(void *addr, unsigned size);
-int page_free(void *addr, unsigned size);
+#include <stdbool.h>
+#include <stddef.h>
+
+extern size_t PAGE_ALLOC_SIZE;
+extern bool PAGE_ALLOC_INIT;
+
+void page_alloc_init();
+void *page_alloc(void *addr, size_t size);
+int page_free(void *addr, size_t size);
+
+#ifdef __cplusplus
+}
+#endif

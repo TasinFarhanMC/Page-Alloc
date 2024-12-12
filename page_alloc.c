@@ -1,17 +1,18 @@
 #include <page_alloc.h>
+#include <stddef.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
-unsigned long PAGE_ALLOC_UNIT = 0;
-char PAGE_ALLOC_INIT = 0;
+size_t PAGE_ALLOC_SIZE = 0;
+bool PAGE_ALLOC_INIT = 0;
 
 void page_alloc_init() {
-  PAGE_ALLOC_UNIT = getpagesize();
-  PAGE_ALLOC_INIT = 1;
+  PAGE_ALLOC_SIZE = getpagesize();
+  PAGE_ALLOC_INIT = true;
 }
 
-void *page_alloc(void *addr, unsigned size) {
-  void *data = mmap(NULL, ALLOC_PAGE_SIZE * size, PROT_READ | PROT_WRITE,
+void *page_alloc(void *addr, size_t size) {
+  void *data = mmap(NULL, size, PROT_READ | PROT_WRITE,
                     MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
   if (data != MAP_FAILED) {
@@ -28,8 +29,8 @@ void *page_alloc(void *addr, unsigned size) {
   return NULL;
 }
 
-int page_free(void *addr, unsigned size) {
-  if (munmap(addr, ALLOC_PAGE_SIZE * size) != -1) {
+int page_free(void *addr, size_t size) {
+  if (munmap(addr, size) != -1) {
     return 0;
   }
 
