@@ -3,6 +3,10 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
+#ifdef DEBUG
+#include <stdio.h>
+#endif
+
 size_t PAGE_ALLOC_SIZE = 0;
 bool PAGE_ALLOC_INIT = 0;
 
